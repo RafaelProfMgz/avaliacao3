@@ -1,0 +1,173 @@
+:root {
+  --font-family: "Georgia", serif;
+  --line-height: 1.6;
+  --color-background: #f5f0e1; /* Calm beige reminiscent of book pages */
+  --color-text: #4a4a4a; /* Soft dark gray for readability */
+  --color-header-bg: #8c7a6b; /* Muted brown, like a leather book cover */
+  --color-header-text: #fffdfb; /* Off-white for contrast */
+  --color-table-border: #d1c7b7; /* Light beige for subtle borders */
+  --color-button-hover: #a08976; /* Slightly lighter brown for hover effects */
+  --color-footer-bg: #4a4a4a; /* Darker gray for footer */
+  --color-footer-text: #eae4d9; /* Light beige for footer text */
+  --border-radius: 4px;
+  --color-row-hover: #eae4d9; /* Light beige for row hover effect */
+}
+
+body {
+  font-family: var(--font-family);
+  line-height: var(--line-height);
+  margin: 0;
+  padding: 0;
+  background-color: var(--color-background);
+  color: var(--color-text);
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+#navBar {
+  background-color: var(--color-header-bg);
+  color: var(--color-header-text);
+  padding: 1rem;
+  text-align: center;
+}
+
+#navBar nav ul {
+  list-style: none;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+}
+
+#navBar nav ul li a {
+  color: var(--color-header-text);
+  text-decoration: none;
+}
+
+main {
+  padding: 2rem;
+  flex: 1;
+}
+
+#adicionar h2 {
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+#formulario {
+  display: grid;
+  gap: 1rem;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+#formulario label {
+  font-weight: bold;
+}
+
+#formulario input {
+  padding: 0.5rem;
+  border: 1px solid var(--color-table-border);
+  border-radius: var(--border-radius);
+}
+
+#formulario button {
+  background-color: var(--color-header-bg);
+  color: var(--color-header-text);
+  padding: 0.5rem;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+}
+
+#formulario button:hover {
+  background-color: var(--color-button-hover);
+}
+
+footer#footer {
+  background-color: var(--color-footer-bg);
+  color: var(--color-footer-text);
+  text-align: center;
+  padding: 1rem;
+  position: relative;
+  bottom: 0;
+  width: 100%;
+}
+
+/* Estilo da tabela */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 2rem;
+}
+
+th,
+td {
+  padding: 0.8rem;
+  text-align: left;
+  border-bottom: 1px solid var(--color-table-border);
+}
+
+th {
+  background-color: var(--color-header-bg);
+  color: var(--color-header-text);
+}
+
+tr:nth-child(even) {
+  background-color: #f9f7f1; /* Lighter background for even rows */
+}
+
+tr:hover {
+  background-color: var(--color-row-hover); /* Light hover effect */
+}
+
+td button {
+  background-color: var(--color-header-bg);
+  color: var(--color-header-text);
+  padding: 0.3rem 0.6rem;
+  border: none;
+  border-radius: var(--border-radius);
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+td button:hover {
+  background-color: var(--color-button-hover);
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.4);
+}
+
+.modal-content {
+  position: absolute;
+  background-color: white;
+  margin: 10% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  width: 80%;
+  max-width: 500px;
+}
+
+.close {
+  color: #aaa;
+  font-size: 28px;
+  font-weight: bold;
+  float: right;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
