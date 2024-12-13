@@ -31,14 +31,14 @@ formulario.onsubmit = async (e) => {
   }
 
   // Validar Telefone
-  if (!telefoneRegex.test(telefone)) {
+  // Validar Telefone
+  if (!telefoneRegex.test(dadosLivro.telefone)) {
     mostrarErro(
-      form.telefone,
+      document.getElementById("telefone"),
       "Por favor, insira um telefone no formato (00) 0 0000 0000."
     );
-    isValid = false;
   } else {
-    limparErro(form.telefone);
+    limparErro(document.getElementById("telefone"));
   }
 
   // Validação de CPF
