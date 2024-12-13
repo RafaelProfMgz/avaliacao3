@@ -7,7 +7,8 @@
   --color-header-bg: #6eb09b;
   --color-header-bg-hover: #648b7f;
   --color-header-text: #f9f6f0;
-  --color-table-border: #e0d4b4;
+  --color-header-table: #34c475;
+  --color-table-border: #5d7c2b;
   --color-button-hover: #3d92e2;
   --color-modal-bg: rgba(0, 0, 0, 0.4);
   --color-footer-text: #f9f6f0;
@@ -160,7 +161,6 @@ main {
 }
 #formulario h2 {
   text-align: center;
-  margin-bottom: 1.5rem;
   color: var(--color-header-bg);
   font-size: 2rem;
 }
@@ -190,19 +190,50 @@ main {
 #formulario button:hover {
   background-color: var(--color-button-hover);
 }
+.div-form-livro {
+  display: grid;
+  gap: 1rem;
+  grid-template-columns: 2fr 1fr; /* Primeira coluna com o dobro de largura */
+}
+.div-input {
+  display: flex;
+  flex-direction: column;
+}
+.headTabela {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+  margin: 0%;
+  background-color: var(--color-header-bg);
+  border-radius: 2rem 2rem 0% 0%;
+  border-bottom: var(--color-border);
+  color: var(--color-header-text);
+}
+.button {
+  background-color: var(--color-header-bg-hover);
+  border: none;
+  color: var(--color-header-text);
+  padding: 0.9rem;
+  font: var(--font-family);
+  border-radius: 15%;
+}
+.button:hover {
+  background-color: var(--color-button-hover);
+}
 
 /* Estilo da tabela */
 table {
   width: 100%;
   border-collapse: collapse;
-  margin-top: 2.5rem;
+  background-color: var(--color-background-cadastro);
 }
 
 th,
 td {
   padding: 1rem;
   text-align: left;
-  border-bottom: 1px solid var(--color-table-border);
+  border: 1px solid var(--color-table-border);
 }
 
 th {

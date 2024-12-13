@@ -32,43 +32,68 @@
       <section id="adicionar" class="section-add">
         <form id="formulario" class="form">
           <h2 class="section-title">Adicionar Livro</h2>
-          <label for="titulo" class="form-label">Título:</label>
+          <label for="Nome" class="form-label">Nome:</label>
           <input
             type="text"
-            id="titulo"
-            name="titulo"
+            id="Nome"
+            name="Nome"
             class="form-input"
             required
           />
-
-          <label for="autor" class="form-label">Autor:</label>
+          <label for="cpf" class="form-label">CPF:</label>
+          <input type="text" id="cpf" name="cpf" class="form-input" required />
+          <label for="email" class="form-label">Email:</label>
           <input
-            type="text"
-            id="autor"
-            name="autor"
+            type="email"
+            id="email"
+            name="email"
             class="form-input"
             required
           />
 
-          <label for="ano" class="form-label">Ano:</label>
-          <input
-            type="date"
-            id="ano"
-            name="ano"
-            class="form-input"
-            min="0"
-            required
-          />
-
-          <label for="genero" class="form-label">Gênero:</label>
-          <input
-            type="text"
-            id="genero"
-            name="genero"
-            class="form-input"
-            required
-          />
-
+          <div class="div-form-livro">
+            <div class="div-input">
+              <label for="titulo" class="form-label">Título:</label>
+              <input
+                type="text"
+                id="titulo"
+                name="titulo"
+                class="form-input"
+                required
+              />
+            </div>
+            <div class="div-input">
+              <label for="autor" class="form-label">Autor:</label>
+              <input
+                type="text"
+                id="autor"
+                name="autor"
+                class="form-input"
+                required
+              />
+            </div>
+            <div class="div-input">
+              <label for="ano" class="form-label">Ano:</label>
+              <input
+                type="date"
+                id="ano"
+                name="ano"
+                class="form-input"
+                min="0"
+                required
+              />
+            </div>
+            <div class="div-input">
+              <label for="genero" class="form-label">Gênero:</label>
+              <input
+                type="text"
+                id="genero"
+                name="genero"
+                class="form-input"
+                required
+              />
+            </div>
+          </div>
           <fieldset class="form-fieldset">
             <legend class="form-legend">Status do Livro:</legend>
             <label class="form-radio-label">
