@@ -18,7 +18,7 @@ const editar = async (id) => {
 
     document.getElementById("modal").dataset.idLivro = id;
 
-    modal.style.display = "block";
+    modal.style.display = "absolut";
   }
 };
 
@@ -95,7 +95,7 @@ const lerDados = async () => {
         id,
         ...dados[id],
       }))
-      .filter((livro) => livro.status === "completo");
+      .filter((livro) => livro.status === "andamento");
 
     livrosCompletos.forEach((livro) => {
       const tr = document.createElement("tr");
@@ -113,6 +113,50 @@ const lerDados = async () => {
       Tabela.appendChild(tr);
     });
   }
+};
+
+// Função para gerar PDF
+const gerarPDF = () => {
+  const tabelaImpressao = document.createElement("div");
+  tabelaImpressao.innerHTML = `
+      <h2>Lista de Livros Lidos</h2>
+      <table border="1" style="width: 100%; border-collapse: collapse;">
+        <thead>
+          <tr>
+            <th>Título</th>
+            <th>Autor</th>
+            <th>Gênero</th>
+            <th>Ano</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          ${Array.from(Tabela.rows)
+            .map(
+              (row) => `
+            <tr>
+              <td>${row.cells[0].innerText}</td>
+              <td>${row.cells[1].innerText}</td>
+              <td>${row.cells[2].innerText}</td>
+              <td>${row.cells[3].innerText}</td>
+              <td>${row.cells[4].innerText}</td>
+            </tr>
+          `
+            )
+            .join("")}
+        </tbody>
+      </table>
+    `;
+
+  // Abre uma nova janela de impressão
+  const janelaImpressao = window.open("", "", "width=800,height=600");
+  janelaImpressao.document.write(
+    "<html><head><title>Imprimir Tabela</title></head><body>"
+  );
+  janelaImpressao.document.write(tabelaImpressao.innerHTML);
+  janelaImpressao.document.write("</body></html>");
+  janelaImpressao.document.close();
+  janelaImpressao.print();
 };
 
 lerDados();

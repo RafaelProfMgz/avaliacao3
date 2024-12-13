@@ -50,6 +50,46 @@ main {
   flex: 1;
 }
 
+#sobre {
+  background-color: #fff; /* White background for contrast */
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  margin-bottom: 2rem;
+}
+
+#sobre h2 {
+  font-size: 2rem;
+  color: var(--color-header-bg);
+  margin-bottom: 1rem;
+}
+
+#sobre p {
+  font-size: 1.125rem;
+  line-height: var(--line-height);
+  color: var(--color-text);
+}
+
+/* "Missão" section */
+#missao {
+  background-color: #fff;
+  padding: 2rem;
+  border-radius: var(--border-radius);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#missao h2 {
+  font-size: 2rem;
+  color: var(--color-header-bg);
+  margin-bottom: 1rem;
+}
+
+#missao p {
+  font-size: 1.125rem;
+  line-height: var(--line-height);
+  color: var(--color-text);
+}
+
 #adicionar h2 {
   text-align: center;
   margin-bottom: 1rem;
@@ -83,16 +123,6 @@ main {
 
 #formulario button:hover {
   background-color: var(--color-button-hover);
-}
-
-footer#footer {
-  background-color: var(--color-footer-bg);
-  color: var(--color-footer-text);
-  text-align: center;
-  padding: 1rem;
-  position: relative;
-  bottom: 0;
-  width: 100%;
 }
 
 /* Estilo da tabela */

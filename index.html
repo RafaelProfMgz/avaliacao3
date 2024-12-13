@@ -12,104 +12,55 @@
       <nav class="navigation">
         <ul class="nav-list">
           <li class="nav-item">
-            <a class="nav-link" href="./completos.html">Livros Lidos</a>
+            <a class="nav-link" href="./src/site/cadastrar.html"
+              >Cadastrar livros</a
+            >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./andamento.html">Em Andamento</a>
+            <a class="nav-link" href="./src/site/completos.html"
+              >Livros lidos</a
+            >
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./listaLeitura.html">Lista de Leitura</a>
+            <a class="nav-link" href="./src/site/andamento.html"
+              >Em andamento</a
+            >
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./src/site/listaLeitura.html"
+              >Lista de leitura</a
+            >
           </li>
         </ul>
       </nav>
     </header>
 
     <main id="mainContent" class="main">
-      <section id="adicionar" class="section-add">
-        <h2 class="section-title">Adicionar Livro</h2>
-        <form id="formulario" class="form">
-          <label for="titulo" class="form-label">Título:</label>
-          <input
-            type="text"
-            id="titulo"
-            name="titulo"
-            class="form-input"
-            required
-          />
+      <!-- Seção Sobre -->
+      <section id="sobre">
+        <h2>Sobre o ReadFish</h2>
+        <p>
+          O ReadFish é uma plataforma dedicada aos amantes da leitura. Com o
+          objetivo de organizar e catalogar os livros lidos, os que estão em
+          andamento e os planejados para leitura, o ReadFish oferece uma
+          experiência simples e prática para que você possa acompanhar sua
+          jornada literária. Aqui, você pode cadastrar livros, marcar os que já
+          leu, acompanhar os em andamento e criar sua lista de leitura futura.
+        </p>
+      </section>
 
-          <label for="autor" class="form-label">Autor:</label>
-          <input
-            type="text"
-            id="autor"
-            name="autor"
-            class="form-input"
-            required
-          />
-
-          <label for="ano" class="form-label">Ano:</label>
-          <input
-            type="date"
-            id="ano"
-            name="ano"
-            class="form-input"
-            min="0"
-            required
-          />
-
-          <label for="genero" class="form-label">Gênero:</label>
-          <input
-            type="text"
-            id="genero"
-            name="genero"
-            class="form-input"
-            required
-          />
-
-          <fieldset class="form-fieldset">
-            <legend class="form-legend">Status do Livro:</legend>
-            <label class="form-radio-label">
-              <input
-                type="radio"
-                name="status"
-                value="completo"
-                class="form-radio"
-                required
-              />
-              Já foi lido
-            </label>
-            <label class="form-radio-label">
-              <input
-                type="radio"
-                name="status"
-                value="andamento"
-                class="form-radio"
-                required
-              />
-              Está lendo
-            </label>
-            <label class="form-radio-label">
-              <input
-                type="radio"
-                name="status"
-                value="lista"
-                class="form-radio"
-                required
-              />
-              Está na lista de leitura
-            </label>
-          </fieldset>
-
-          <button type="submit" class="form-button">Adicionar Livro</button>
-        </form>
+      <!-- Seção Missão -->
+      <section id="missao" class="missao">
+        <h2>Missão</h2>
+        <p>
+          Nossa missão é incentivar a leitura e proporcionar uma maneira
+          eficiente de organizar e acompanhar os livros. Queremos criar uma
+          comunidade de leitores que compartilham suas experiências e
+          descobertas literárias, transformando o hábito da leitura em uma
+          prática cada vez mais envolvente e acessível.
+        </p>
       </section>
     </main>
-
-    <footer id="footer" class="footer">
-      <p class="footer-text">
-        &copy; 2024 ReadFish. Todos os direitos reservados.
-      </p>
-    </footer>
-
-    <script src="./js/cadastrar.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
   </body>
 </html>

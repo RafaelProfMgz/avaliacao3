@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Livros Lidos</title>
-    <link rel="stylesheet" href="./css/styles.css" />
+    <link rel="stylesheet" href="../../css/styles.css" />
   </head>
   <body>
     <header id="navBar" class="header">
@@ -12,7 +12,7 @@
       <nav class="navigation">
         <ul class="nav-list">
           <li class="nav-item">
-            <a class="nav-link" href="./index.html">Home</a>
+            <a class="nav-link" href="../../index.html">Home</a>
           </li>
           <li class="nav-item">
             <a class="nav-link" href="./completos.html">Livros Lidos</a>
@@ -29,7 +29,8 @@
 
     <main id="main-content">
       <section id="book-list">
-        <h2 class="section-title">Lista de Livros</h2>
+        <h2 class="section-title">Lista de Livros em Andamento</h2>
+        <button class="button" onclick="gerarPDF()">Imprimir</button>
         <table id="books-table" class="table">
           <thead>
             <tr>
@@ -129,10 +130,7 @@
       </div>
     </div>
 
-    <footer id="footer">
-      <p>&copy; 2024 Gerenciador de Livros. Todos os direitos reservados.</p>
-    </footer>
     <!-- Chama DataGrid -->
-    <script src="./js/listaLeitura.js"></script>
+    <script src="./js/listaAndamento.js"></script>
   </body>
 </html>

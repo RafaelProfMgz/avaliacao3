@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Livros Lidos</title>
+    <link rel="stylesheet" href="../../css/styles.css" />
+  </head>
+  <body>
+    <header id="navBar" class="header">
+      <h1 class="header-title">ReadFish</h1>
+      <nav class="navigation">
+        <ul class="nav-list">
+          <li class="nav-item">
+            <a class="nav-link" href="../../index.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./completos.html">Livros Lidos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./andamento.html">Em Andamento</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./listaLeitura.html">Lista de Leitura</a>
+          </li>
+        </ul>
+      </nav>
+    </header>
+
+    <main id="main-content">
+      <section id="book-list">
+        <h2 class="section-title">Lista de Livros</h2>
+        <button class="button" onclick="gerarPDF()">Imprimir</button>
+        <table id="books-table" class="table">
+          <thead>
+            <tr>
+              <th class="table-header">Título</th>
+              <th class="table-header">Autor</th>
+              <th class="table-header">Gênero</th>
+              <th class="table-header">Ano</th>
+              <th class="table-header">Status</th>
+              <th class="table-header">Ação</th>
+            </tr>
+          </thead>
+          <tbody id="tabela">
+            <!-- Tabela vazia, você vai preencher com dados do banco -->
+          </tbody>
+        </table>
+      </section>
+      <!-- Modal de Editar Livro -->
+      <div id="modal" class="modal">
+        <div class="modal-content">
+          <span class="close" onclick="fecharModal()">&times;</span>
+          <h2 class="section-title">Editar Livro</h2>
+          <form id="formulario" class="form">
+            <label for="titulo" class="form-label">Título:</label>
+            <input
+              type="text"
+              id="titulo"
+              name="titulo"
+              class="form-input"
+              required
+            />
+
+            <label for="autor" class="form-label">Autor:</label>
+            <input
+              type="text"
+              id="autor"
+              name="autor"
+              class="form-input"
+              required
+            />
+
+            <label for="ano" class="form-label">Ano:</label>
+            <input
+              type="date"
+              id="ano"
+              name="ano"
+              class="form-input"
+              min="0"
+              required
+            />
+
+            <label for="genero" class="form-label">Gênero:</label>
+            <input
+              type="text"
+              id="genero"
+              name="genero"
+              class="form-input"
+              required
+            />
+
+            <fieldset class="form-fieldset">
+              <legend class="form-legend">Status do Livro:</legend>
+              <label class="form-radio-label">
+                <input
+                  type="radio"
+                  name="status"
+                  value="completo"
+                  class="form-radio"
+                  required
+                />
+                Já foi lido
+              </label>
+              <label class="form-radio-label">
+                <input
+                  type="radio"
+                  name="status"
+                  value="andamento"
+                  class="form-radio"
+                  required
+                />
+                Está lendo
+              </label>
+              <label class="form-radio-label">
+                <input
+                  type="radio"
+                  name="status"
+                  value="lista"
+                  class="form-radio"
+                  required
+                />
+                Está na lista de leitura
+              </label>
+            </fieldset>
+            <!-- Botão para editar um livro -->
+            <button onclick="editarLivro()">Salvar</button>
+          </form>
+        </div>
+      </div>
+    </main>
+
+    <!-- Chama DataGrid -->
+    <script src="./js/listaLeitura.js"></script>
+  </body>
+</html>
