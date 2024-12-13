@@ -7,9 +7,10 @@
     <link rel="stylesheet" href="./css/styles.css" />
   </head>
   <body>
-    <header id="navBar" class="header">
+    <header class="header">
       <h1 class="header-title">ReadFish</h1>
       <nav class="navigation">
+        <div class="menu-toggle" id="menuToggle">&#9776;</div>
         <ul class="nav-list">
           <li class="nav-item">
             <a class="nav-link" href="./src/site/cadastrar.html"
@@ -52,15 +53,34 @@
       <!-- Seção Missão -->
       <section id="missao" class="missao">
         <h2>Missão</h2>
-        <p>
-          Nossa missão é incentivar a leitura e proporcionar uma maneira
-          eficiente de organizar e acompanhar os livros. Queremos criar uma
-          comunidade de leitores que compartilham suas experiências e
-          descobertas literárias, transformando o hábito da leitura em uma
-          prática cada vez mais envolvente e acessível.
-        </p>
+        <div class="cards">
+          <div class="card">
+            <h3>Incentivar a Leitura</h3>
+            <p>
+              Nossa missão é incentivar a leitura de livros, promovendo o hábito
+              de ler e tornando a leitura algo acessível para todos.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Organização Eficiente</h3>
+            <p>
+              Proporcionar uma maneira simples e eficiente para os leitores
+              organizarem seus livros lidos, em andamento e planejados.
+            </p>
+          </div>
+          <div class="card">
+            <h3>Transformar o Hábito</h3>
+            <p>
+              Transformar o hábito da leitura em uma prática envolvente e
+              contínua, incentivando cada vez mais pessoas a adotarem a leitura
+              como parte de sua rotina.
+            </p>
+          </div>
+        </div>
       </section>
     </main>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
   </body>
 </html>

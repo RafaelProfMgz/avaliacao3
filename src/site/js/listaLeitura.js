@@ -114,6 +114,26 @@ const lerDados = async () => {
     });
   }
 };
+const remover = async (id, nomeLivro) => {
+  // Exibe o modal de confirmação com o nome do livro
+  const confirmacao = confirm(
+    `Tem certeza que deseja excluir o livro "${nomeLivro}"?`
+  );
+
+  if (confirmacao) {
+    const resultado = await fetch(
+      `https://readfish-bce18-default-rtdb.firebaseio.com/livros/${id}.json`,
+      {
+        method: "DELETE",
+      }
+    );
+
+    if (resultado.ok) {
+      window.alert("Livro deletado");
+      lerDados(); // Atualiza os dados na tabela
+    }
+  }
+};
 
 // Função para gerar PDF
 const gerarPDF = () => {
@@ -155,8 +175,8 @@ const gerarPDF = () => {
   );
   janelaImpressao.document.write(tabelaImpressao.innerHTML);
   janelaImpressao.document.write("</body></html>");
-  janelaImpressao.document.close(); 
-  janelaImpressao.print(); 
+  janelaImpressao.document.close();
+  janelaImpressao.print();
 };
 
 lerDados();

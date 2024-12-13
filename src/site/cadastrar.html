@@ -10,6 +10,7 @@
     <header id="navBar" class="header">
       <h1 class="header-title">ReadFish</h1>
       <nav class="navigation">
+        <div class="menu-toggle" id="menuToggle">&#9776;</div>
         <ul class="nav-list">
           <li class="nav-item">
             <a class="nav-link" href="../../index.html">Home</a>
@@ -29,8 +30,8 @@
 
     <main id="mainContent" class="main">
       <section id="adicionar" class="section-add">
-        <h2 class="section-title">Adicionar Livro</h2>
         <form id="formulario" class="form">
+          <h2 class="section-title">Adicionar Livro</h2>
           <label for="titulo" class="form-label">Título:</label>
           <input
             type="text"
@@ -102,11 +103,12 @@
             </label>
           </fieldset>
 
-          <button type="submit" class="form-button">Adicionar Livro</button>
+          <button type="submit" class="form-button">Salvar</button>
         </form>
       </section>
     </main>
 
     <script src="./js/cadastrar.js"></script>
+    <script src="../../script.js"></script>
   </body>
 </html>
