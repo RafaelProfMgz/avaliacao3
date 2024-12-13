@@ -1,5 +1,3 @@
-// Regex para validação
-
 formulario.onsubmit = async (e) => {
   e.preventDefault();
 

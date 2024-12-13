@@ -1,4 +1,3 @@
-// Regex para validação
 const regexCPF = /^(?:\d{3}\.\d{3}\.\d{3}-\d{2}|\d{11})$/;
 const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 const telefoneRegex = /^\(\d{2}\) \d \d{4} \d{4}$/;
