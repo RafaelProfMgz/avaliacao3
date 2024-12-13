@@ -62,8 +62,6 @@ const popularSelect = async () => {
 livrosSelect.addEventListener("change", async () => {
   const id = livrosSelect.value;
 
-  console.log(id);
-  
   if (id) {
     try {
       const resultado = await fetch(
