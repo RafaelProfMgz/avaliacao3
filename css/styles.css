@@ -176,6 +176,13 @@ main {
   font-size: 1rem;
 }
 
+#formulario select {
+  padding: 0.5rem;
+  border: 1px solid var(--color-table-border);
+  border-radius: var(--border-radius);
+  font-size: 1rem;
+}
+
 #formulario button {
   background-color: var(--color-header-bg);
   color: var(--color-header-text);
@@ -227,6 +234,7 @@ table {
   width: 100%;
   border-collapse: collapse;
   background-color: var(--color-background-cadastro);
+
 }
 
 th,
@@ -263,6 +271,17 @@ td button {
 td button:hover {
   background-color: var(--color-button-hover);
 }
+
+.nenhum-livro {
+  font-size: 18px;
+  color: #999;
+  text-align: center;
+  padding: 20px;
+  background-color: #f9f9f9;
+  border: 1px solid #ddd;
+  margin-top: 20px;
+}
+
 
 .modal {
   display: none;
@@ -301,6 +320,43 @@ td button:hover {
   color: black;
   text-decoration: none;
   cursor: pointer;
+}
+
+@media print {
+  .button-td {
+    display: none !important;
+  }
+
+  #navBar,
+  .button {
+    display: none;
+  }
+
+  #books-table {
+    width: 100%;
+    border-collapse: collapse;
+  }
+
+  #books-table th,
+  #books-table td {
+    border: 1px solid #000;
+    padding: 8px;
+    text-align: left;
+  }
+
+  .section-title,
+  .table-header {
+    font-size: 16px;
+    font-weight: bold;
+  }
+
+  #books-table tbody td {
+    font-size: 14px;
+  }
+  
+  .modal {
+    display: none;
+  }
 }
 
 @media (max-width: 768px) {

@@ -35,18 +35,21 @@
       <section id="book-list">
         <div class="headTabela">
           <h2 class="section-title">Lista de Livros Lidos</h2>
-          <button class="button" onclick="gerarPDF()">Imprimir</button>
+          <button class="button" onclick="imprimirPagina()">Imprimir</button>
         </div>
 
         <table id="books-table" class="table">
           <thead>
             <tr>
+              <th class="table-header">Nome</th>
+              <th class="table-header">CPF</th>
+              <th class="table-header">Email</th>
               <th class="table-header">Título</th>
               <th class="table-header">Autor</th>
               <th class="table-header">Gênero</th>
               <th class="table-header">Ano</th>
               <th class="table-header">Status</th>
-              <th class="table-header">Ação</th>
+              <th class="button-td">Ação</th>
             </tr>
           </thead>
           <tbody id="tabela">
@@ -60,43 +63,85 @@
           <span class="close" onclick="fecharModal()">&times;</span>
           <h2 class="section-title">Editar Livro</h2>
           <form id="formulario" class="form">
-            <label for="titulo" class="form-label">Título:</label>
+            <label for="nome" class="form-label">Nome:</label>
             <input
               type="text"
-              id="titulo"
-              name="titulo"
+              id="nome"
+              name="nome"
               class="form-input"
               required
             />
-
-            <label for="autor" class="form-label">Autor:</label>
+            <label for="cpf" class="form-label">CPF:</label>
             <input
               type="text"
-              id="autor"
-              name="autor"
+              placeholder="000.000.000-00"
+              id="cpf"
+              name="cpf"
               class="form-input"
               required
             />
-
-            <label for="ano" class="form-label">Ano:</label>
+            <span class="erro"></span>
+            <label for="email" class="form-label">Email:</label>
             <input
-              type="date"
-              id="ano"
-              name="ano"
+              type="email"
+              id="email"
+              name="email"
               class="form-input"
-              min="0"
+              placeholder="teste@teste.com"
               required
             />
-
-            <label for="genero" class="form-label">Gênero:</label>
-            <input
-              type="text"
-              id="genero"
-              name="genero"
-              class="form-input"
-              required
-            />
-
+            <span class="erro"></span>
+            <div class="div-form-livro">
+              <div class="div-input">
+                <label for="titulo" class="form-label">Título:</label>
+                <input
+                  type="text"
+                  id="titulo"
+                  name="titulo"
+                  class="form-input"
+                  required
+                />
+              </div>
+              <div class="div-input">
+                <label for="autor" class="form-label">Autor:</label>
+                <input
+                  type="text"
+                  id="autor"
+                  name="autor"
+                  class="form-input"
+                  required
+                />
+              </div>
+              <div class="div-input">
+                <label for="ano" class="form-label">Ano:</label>
+                <input
+                  type="date"
+                  id="ano"
+                  name="ano"
+                  class="form-input"
+                  min="0"
+                  required
+                />
+              </div>
+              <div class="div-input">
+                <label for="genero" class="form-label">Gênero:</label>
+                <select id="genero" name="genero" class="form-input" required>
+                  <option value="" disabled selected>
+                    Selecione um gênero
+                  </option>
+                  <option value="ficcao">Ficção</option>
+                  <option value="fantasia">Fantasia</option>
+                  <option value="romance">Romance</option>
+                  <option value="terror">Terror</option>
+                  <option value="aventura">Aventura</option>
+                  <option value="biografia">Biografia</option>
+                  <option value="ciencia">Ciência</option>
+                  <option value="historia">História</option>
+                  <option value="misterio">Mistério</option>
+                  <option value="autoajuda">Autoajuda</option>
+                </select>
+              </div>
+            </div>
             <fieldset class="form-fieldset">
               <legend class="form-legend">Status do Livro:</legend>
               <label class="form-radio-label">
@@ -130,6 +175,7 @@
                 Está na lista de leitura
               </label>
             </fieldset>
+
             <!-- Botão para editar um livro -->
             <button onclick="editarLivro()">Salvar</button>
           </form>
