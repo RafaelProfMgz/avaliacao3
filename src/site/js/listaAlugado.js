@@ -31,7 +31,6 @@ formulario.onsubmit = async (e) => {
   }
 
   // Validar Telefone
-  // Validar Telefone
   if (!telefoneRegex.test(dadosLivro.telefone)) {
     mostrarErro(
       document.getElementById("telefone"),
@@ -123,7 +122,6 @@ const editar = async (id) => {
   if (resultado.ok) {
     const livro = await resultado.json();
 
-    console.log(livro);
     document.getElementById("nome").value = livro.nome;
     document.getElementById("email").value = livro.email;
     document.getElementById("cpf").value = livro.cpf;
