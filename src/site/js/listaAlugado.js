@@ -1,6 +1,7 @@
 // Regex para validação
 const regexCPF = /^(?:\d{3}\.\d{3}\.\d{3}-\d{2}|\d{11})$/;
 const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+const telefoneRegex = /^\(\d{2}\) \d \d{4} \d{4}$/;
 
 formulario.onsubmit = async (e) => {
   e.preventDefault();
@@ -10,6 +11,7 @@ formulario.onsubmit = async (e) => {
     nome: document.getElementById("nome").value,
     email: document.getElementById("email").value,
     cpf: document.getElementById("cpf").value,
+    telefone: document.getElementById("telefone").value,
     titulo: document.getElementById("titulo").value,
     autor: document.getElementById("autor").value,
     genero: document.getElementById("genero").value,
@@ -26,6 +28,17 @@ formulario.onsubmit = async (e) => {
     return;
   } else {
     limparErro(document.getElementById("email"));
+  }
+
+  // Validar Telefone
+  if (!telefoneRegex.test(telefone)) {
+    mostrarErro(
+      form.telefone,
+      "Por favor, insira um telefone no formato (00) 0 0000 0000."
+    );
+    isValid = false;
+  } else {
+    limparErro(form.telefone);
   }
 
   // Validação de CPF
@@ -110,9 +123,11 @@ const editar = async (id) => {
   if (resultado.ok) {
     const livro = await resultado.json();
 
+    console.log(livro);
     document.getElementById("nome").value = livro.nome;
     document.getElementById("email").value = livro.email;
     document.getElementById("cpf").value = livro.cpf;
+    document.getElementById("telefone").value = livro.telefone;
     document.getElementById("titulo").value = livro.titulo;
     document.getElementById("autor").value = livro.autor;
     document.getElementById("genero").value = livro.genero;
@@ -146,14 +161,13 @@ const lerDados = async () => {
         id,
         ...dados[id],
       }))
-      .filter((livro) => livro.status === "lista");
-
+      .filter((livro) => livro.status === "alugado");
 
     if (livrosCompletos.length === 0) {
       const mensagem = document.createElement("div");
       mensagem.classList.add("nenhum-livro");
       mensagem.innerHTML = "Nenhum livro encontrado.";
-      Tabela.appendChild(mensagem); 
+      Tabela.appendChild(mensagem);
     } else {
       // Exibe os livros na tabela
       livrosCompletos.forEach((livro) => {
@@ -162,6 +176,7 @@ const lerDados = async () => {
           <td>${livro.nome}</td>
           <td>${livro.cpf}</td>
           <td>${livro.email}</td>
+          <td>${livro.telefone}</td>
           <td>${livro.titulo}</td>
           <td>${livro.autor}</td>
           <td>${livro.genero}</td>
@@ -179,6 +194,7 @@ const lerDados = async () => {
 };
 
 const remover = async (id, nomeLivro) => {
+  // Exibe o modal de confirmação com o nome do livro
   const confirmacao = confirm(
     `Tem certeza que deseja excluir o livro "${nomeLivro}"?`
   );
@@ -193,13 +209,13 @@ const remover = async (id, nomeLivro) => {
 
     if (resultado.ok) {
       window.alert("Livro deletado");
-      lerDados(); 
+      lerDados(); // Atualiza os dados na tabela
     }
   }
 };
 
 function imprimirPagina() {
-  window.print();
+  window.print(); // Isso vai abrir a janela de impressão
 }
 
 lerDados();

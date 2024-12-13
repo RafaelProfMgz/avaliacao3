@@ -39,7 +39,59 @@
     <main id="mainContent" class="main">
       <section id="adicionar" class="section-add">
         <form id="formulario" class="form">
-          <h2 class="section-title">Cadastrar Livro</h2>
+          <h2 class="section-title">Alugar Livro</h2>
+          <label for="nome" class="form-label">Nome:</label>
+          <input
+            type="text"
+            id="nome"
+            name="nome"
+            class="form-input"
+            required
+          />
+          <div class="div-form-livro">
+            <div class="div-input">
+              <label for="cpf" class="form-label">CPF:</label>
+              <input
+                type="text"
+                placeholder="000.000.000-00"
+                id="cpf"
+                name="cpf"
+                class="form-input"
+                required
+              />
+              <span class="erro"></span>
+            </div>
+            <div class="div-input">
+              <label for="telefone" class="form-label">Telefone:</label>
+              <input
+                type="text"
+                placeholder="(00) 0 0000 0000"
+                id="telefone"
+                name="telefone"
+                class="form-input"
+                required
+              />
+              <span class="erro"></span>
+            </div>
+          </div>
+          <div class="div-input">
+            <label for="email" class="form-label">Email:</label>
+            <input
+              type="email"
+              id="email"
+              name="email"
+              class="form-input"
+              placeholder="teste@teste.com"
+              required
+            />
+            <span class="erro"></span>
+          </div>
+
+          <label for="livrosSelect">Selecione um livro:</label>
+          <select id="livrosSelect" name="livrosSelect">
+            <option value="">Carregando livros...</option>
+          </select>
+
           <div class="div-form-livro">
             <div class="div-input">
               <label for="titulo" class="form-label">Título:</label>
@@ -95,7 +147,7 @@
       </section>
     </main>
 
-    <script src="./js/cadastrar.js"></script>
+    <script src="./js/alugar.js"></script>
     <script src="../../script.js"></script>
   </body>
 </html>

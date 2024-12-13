@@ -1,43 +1,16 @@
 // Regex para validação
-const regexCPF = /^(?:\d{3}\.\d{3}\.\d{3}-\d{2}|\d{11})$/;
-const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
 
 formulario.onsubmit = async (e) => {
   e.preventDefault();
 
   const idLivro = document.getElementById("modal").dataset.idLivro;
   const dadosLivro = {
-    nome: document.getElementById("nome").value,
-    email: document.getElementById("email").value,
-    cpf: document.getElementById("cpf").value,
     titulo: document.getElementById("titulo").value,
     autor: document.getElementById("autor").value,
     genero: document.getElementById("genero").value,
     ano: document.getElementById("ano").value,
     status: document.querySelector('input[name="status"]:checked').value,
   };
-
-  // Validação de Email
-  if (!regexEmail.test(dadosLivro.email)) {
-    mostrarErro(
-      document.getElementById("email"),
-      "Por favor, insira um email válido."
-    );
-    return;
-  } else {
-    limparErro(document.getElementById("email"));
-  }
-
-  // Validação de CPF
-  if (!regexCPF.test(dadosLivro.cpf)) {
-    mostrarErro(
-      document.getElementById("cpf"),
-      "Por favor, insira um CPF válido."
-    );
-    return;
-  } else {
-    limparErro(document.getElementById("cpf"));
-  }
 
   let resultado;
 
@@ -78,45 +51,6 @@ formulario.onsubmit = async (e) => {
   }
 };
 
-const remover = async (id, nomeLivro) => {
-  const confirmacao = confirm(
-    `Tem certeza que deseja excluir o livro "${nomeLivro}"?`
-  );
-
-  if (confirmacao) {
-    const resultado = await fetch(
-      `https://readfish-bce18-default-rtdb.firebaseio.com/livros/${id}.json`,
-      {
-        method: "DELETE",
-      }
-    );
-
-    if (resultado.ok) {
-      window.alert("Livro deletado");
-      lerDados();
-    }
-  }
-};
-
-function mostrarErro(input, mensagem) {
-  let erro = input.nextElementSibling;
-  if (!erro || !erro.classList.contains("erro")) {
-    erro = document.createElement("span");
-    erro.classList.add("erro");
-    erro.style.color = "red";
-    erro.style.fontSize = "0.9rem";
-    input.insertAdjacentElement("afterend", erro);
-  }
-  erro.textContent = mensagem;
-}
-
-function limparErro(input) {
-  const erro = input.nextElementSibling;
-  if (erro && erro.classList.contains("erro")) {
-    erro.textContent = "";
-  }
-}
-
 const fecharModal = () => {
   modal.style.display = "none";
 };
@@ -129,10 +63,6 @@ const editar = async (id) => {
 
   if (resultado.ok) {
     const livro = await resultado.json();
-
-    document.getElementById("nome").value = livro.nome;
-    document.getElementById("email").value = livro.email;
-    document.getElementById("cpf").value = livro.cpf;
     document.getElementById("titulo").value = livro.titulo;
     document.getElementById("autor").value = livro.autor;
     document.getElementById("genero").value = livro.genero;
@@ -149,7 +79,6 @@ const editar = async (id) => {
 };
 
 const Tabela = document.querySelector("#tabela");
-
 const lerDados = async () => {
   const resultado = await fetch(
     "https://readfish-bce18-default-rtdb.firebaseio.com/livros.json",
@@ -167,7 +96,7 @@ const lerDados = async () => {
         id,
         ...dados[id],
       }))
-      .filter((livro) => livro.status === "completo");
+      .filter((livro) => livro.status === "extraviado");
 
 
     if (livrosCompletos.length === 0) {
@@ -183,6 +112,7 @@ const lerDados = async () => {
           <td>${livro.nome}</td>
           <td>${livro.cpf}</td>
           <td>${livro.email}</td>
+          <td>${livro.telefone}</td>
           <td>${livro.titulo}</td>
           <td>${livro.autor}</td>
           <td>${livro.genero}</td>
@@ -199,8 +129,28 @@ const lerDados = async () => {
   }
 };
 
+const remover = async (id, nomeLivro) => {
+  const confirmacao = confirm(
+    `Tem certeza que deseja excluir o livro "${nomeLivro}"?`
+  );
+
+  if (confirmacao) {
+    const resultado = await fetch(
+      `https://readfish-bce18-default-rtdb.firebaseio.com/livros/${id}.json`,
+      {
+        method: "DELETE",
+      }
+    );
+
+    if (resultado.ok) {
+      window.alert("Livro deletado");
+      lerDados(); 
+    }
+  }
+};
+
 function imprimirPagina() {
-  window.print(); // Isso vai abrir a janela de impressão
+  window.print();
 }
 
 lerDados();

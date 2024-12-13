@@ -19,13 +19,16 @@
             <a class="nav-link" href="./cadastrar.html">Cadastrar livro</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./completos.html">Livros Lidos</a>
+            <a class="nav-link" href="./alugar.html">Alugar livro</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./andamento.html">Em Andamento</a>
+            <a class="nav-link" href="./listaEstoque.html">Livros em estoque</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./listaLeitura.html">Lista de Leitura</a>
+            <a class="nav-link" href="./listaAlugado.html">Livros alugados</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="./listaExtraviado.html">Lista de leitura</a>
           </li>
         </ul>
       </nav>
@@ -34,16 +37,16 @@
     <main id="main">
       <section id="book-list">
         <div class="headTabela">
-          <h2 class="section-title">Lista de Livros Lidos</h2>
+          <h2 class="section-title">Lista de Livros Em Leitura</h2>
           <button class="button" onclick="imprimirPagina()">Imprimir</button>
         </div>
-
         <table id="books-table" class="table">
           <thead>
             <tr>
               <th class="table-header">Nome</th>
               <th class="table-header">CPF</th>
               <th class="table-header">Email</th>
+              <th class="table-header">Telefone</th>
               <th class="table-header">Título</th>
               <th class="table-header">Autor</th>
               <th class="table-header">Gênero</th>
@@ -62,8 +65,8 @@
       <div id="modal" class="modal">
         <div class="modal-content">
           <span class="close" onclick="fecharModal()">&times;</span>
-          <h2 class="section-title">Editar Livro</h2>
           <form id="formulario" class="form">
+            <h2 class="section-title">Editar Livro</h2>
             <label for="nome" class="form-label">Nome:</label>
             <input
               type="text"
@@ -72,26 +75,44 @@
               class="form-input"
               required
             />
-            <label for="cpf" class="form-label">CPF:</label>
-            <input
-              type="text"
-              placeholder="000.000.000-00"
-              id="cpf"
-              name="cpf"
-              class="form-input"
-              required
-            />
-            <span class="erro"></span>
-            <label for="email" class="form-label">Email:</label>
-            <input
-              type="email"
-              id="email"
-              name="email"
-              class="form-input"
-              placeholder="teste@teste.com"
-              required
-            />
-            <span class="erro"></span>
+            <div class="div-form-livro">
+              <div class="div-input">
+                <label for="cpf" class="form-label">CPF:</label>
+                <input
+                  type="text"
+                  placeholder="000.000.000-00"
+                  id="cpf"
+                  name="cpf"
+                  class="form-input"
+                  required
+                />
+                <span class="erro"></span>
+              </div>
+              <div class="div-input">
+                <label for="telefone" class="form-label">Telefone:</label>
+                <input
+                  type="text"
+                  placeholder="(00) 0 0000 0000"
+                  id="telefone"
+                  name="telefone"
+                  class="form-input"
+                  required
+                />
+                <span class="erro"></span>
+              </div>
+            </div>
+            <div class="div-input">
+              <label for="email" class="form-label">Email:</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="form-input"
+                placeholder="teste@teste.com"
+                required
+              />
+              <span class="erro"></span>
+            </div>
             <div class="div-form-livro">
               <div class="div-input">
                 <label for="titulo" class="form-label">Título:</label>
@@ -149,31 +170,31 @@
                 <input
                   type="radio"
                   name="status"
-                  value="completo"
+                  value="estoque"
                   class="form-radio"
                   required
                 />
-                Já foi lido
+                Devolvido
               </label>
               <label class="form-radio-label">
                 <input
                   type="radio"
                   name="status"
-                  value="andamento"
+                  value="alugado"
                   class="form-radio"
                   required
                 />
-                Está lendo
+                Alugado
               </label>
               <label class="form-radio-label">
                 <input
                   type="radio"
                   name="status"
-                  value="lista"
+                  value="extraviado"
                   class="form-radio"
                   required
                 />
-                Está na lista de leitura
+                Extraviado
               </label>
             </fieldset>
 
@@ -184,7 +205,7 @@
       </div>
     </main>
     <!-- Chama DataGrid -->
-    <script src="./js/listaCompletos.js"></script>
+    <script src="./js/listaAlugado.js"></script>
     <script src="../../script.js"></script>
   </body>
 </html>
