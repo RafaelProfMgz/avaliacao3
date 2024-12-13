@@ -229,6 +229,10 @@ main {
   background-color: var(--color-button-hover);
 }
 
+#book-list {
+  overflow-x: auto; /* Permite rolagem horizontal */
+}
+
 /* Estilo da tabela */
 table {
   width: 100%;
