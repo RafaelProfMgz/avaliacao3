@@ -28,7 +28,9 @@
             <a class="nav-link" href="./listaAlugado.html">Livros alugados</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="./listaExtraviado.html">Lista de extraviado</a>
+            <a class="nav-link" href="./listaExtraviado.html"
+              >Lista de extraviado</a
+            >
           </li>
         </ul>
       </nav>
@@ -37,7 +39,7 @@
     <main id="main">
       <section id="book-list">
         <div class="headTabela">
-          <h2 class="section-title">Lista de Livros Em Leitura</h2>
+          <h2 class="section-title">Lista de Livros Alugados</h2>
           <button class="button" onclick="imprimirPagina()">Imprimir</button>
         </div>
         <table id="books-table" class="table">
@@ -72,6 +74,7 @@
               type="text"
               id="nome"
               name="nome"
+              disabled
               class="form-input"
               required
             />
@@ -83,6 +86,7 @@
                   placeholder="000.000.000-00"
                   id="cpf"
                   name="cpf"
+                  disabled
                   class="form-input"
                   required
                 />
@@ -95,6 +99,7 @@
                   placeholder="(00) 0 0000 0000"
                   id="telefone"
                   name="telefone"
+                  disabled
                   class="form-input"
                   required
                 />
@@ -107,6 +112,7 @@
                 type="email"
                 id="email"
                 name="email"
+                disabled
                 class="form-input"
                 placeholder="teste@teste.com"
                 required
@@ -120,6 +126,7 @@
                   type="text"
                   id="titulo"
                   name="titulo"
+                  disabled
                   class="form-input"
                   required
                 />
@@ -130,6 +137,7 @@
                   type="text"
                   id="autor"
                   name="autor"
+                  disabled
                   class="form-input"
                   required
                 />
@@ -140,6 +148,7 @@
                   type="date"
                   id="ano"
                   name="ano"
+                  disabled
                   class="form-input"
                   min="0"
                   required
@@ -147,7 +156,7 @@
               </div>
               <div class="div-input">
                 <label for="genero" class="form-label">Gênero:</label>
-                <select id="genero" name="genero" class="form-input" required>
+                <select id="genero" name="genero" class="form-input"  disabled required>
                   <option value="" disabled selected>
                     Selecione um gênero
                   </option>

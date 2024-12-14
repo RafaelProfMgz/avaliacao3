@@ -76,10 +76,6 @@ livrosSelect.addEventListener("change", async () => {
       const dados = await resultado.json();
 
       // Preencher os campos do formulário
-      form.nome.value = dados.nome || "";
-      form.email.value = dados.email || "";
-      form.cpf.value = dados.cpf || "";
-      form.telefone.value = dados.telefone || "";
       form.titulo.value = dados.titulo || "";
       form.autor.value = dados.autor || "";
       form.ano.value = dados.ano || "";
@@ -131,15 +127,51 @@ form.addEventListener("submit", async (event) => {
   }
 
   if (!cpfRegex.test(cpf)) {
+    return false; // Formato inválido
+  }
+
+  // Remove pontos e traço do CPF
+  const cleanedCPF = cpf.replace(/\D/g, "");
+
+  // Verifica se todos os números são iguais (exemplo: "111.111.111-11")
+  if (/^(\d)\1+$/.test(cleanedCPF)) {
+    return false;
+  }
+
+  // Calcula os dígitos verificadores
+  const calculateDigit = (cpfArray, factor) => {
+    let total = 0;
+    for (let i = 0; i < cpfArray.length; i++) {
+      total += cpfArray[i] * factor--;
+    }
+    const remainder = total % 11;
+    return remainder < 2 ? 0 : 11 - remainder;
+  };
+
+  const cpfArray = cleanedCPF.split("").map(Number);
+
+  // Calcula o primeiro dígito verificador
+  const firstDigit = calculateDigit(cpfArray.slice(0, 9), 10);
+  if (firstDigit !== cpfArray[9]) {
     mostrarErro(
       form.cpf,
-      "Por favor, insira um CPF no formato 000.000.000-00."
+      "O CPF é inválido. Verifique os números e tente novamente."
     );
-    isValid = false;
+    return false;
   } else {
     limparErro(form.cpf);
   }
 
+  const secondDigit = calculateDigit(cpfArray.slice(0, 10), 11);
+  if (secondDigit !== cpfArray[10]) {
+    mostrarErro(
+      form.cpf,
+      "O CPF é inválido. Verifique os números e tente novamente."
+    );
+    return false;
+  } else {
+    limparErro(form.cpf);
+  }
   if (!isValid) {
     return;
   }

@@ -348,14 +348,13 @@ td button:hover {
 
   .section-title,
   .table-header {
-    font-size: 16px;
+    font-size: 12px;
     font-weight: bold;
   }
 
   #books-table tbody td {
-    font-size: 14px;
+    font-size: 10px;
   }
-
   .modal {
     display: none;
   }
