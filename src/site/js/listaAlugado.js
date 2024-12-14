@@ -1,7 +1,3 @@
-const regexCPF = /^(?:\d{3}\.\d{3}\.\d{3}-\d{2}|\d{11})$/;
-const regexEmail = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
-const telefoneRegex = /^\(\d{2}\) \d \d{4} \d{4}$/;
-
 formulario.onsubmit = async (e) => {
   e.preventDefault();
 
@@ -17,38 +13,6 @@ formulario.onsubmit = async (e) => {
     ano: document.getElementById("ano").value,
     status: document.querySelector('input[name="status"]:checked').value,
   };
-
-  // Validação de Email
-  if (!regexEmail.test(dadosLivro.email)) {
-    mostrarErro(
-      document.getElementById("email"),
-      "Por favor, insira um email válido."
-    );
-    return;
-  } else {
-    limparErro(document.getElementById("email"));
-  }
-
-  // Validar Telefone
-  if (!telefoneRegex.test(dadosLivro.telefone)) {
-    mostrarErro(
-      document.getElementById("telefone"),
-      "Por favor, insira um telefone no formato (00) 0 0000 0000."
-    );
-  } else {
-    limparErro(document.getElementById("telefone"));
-  }
-
-  // Validação de CPF
-  if (!regexCPF.test(dadosLivro.cpf)) {
-    mostrarErro(
-      document.getElementById("cpf"),
-      "Por favor, insira um CPF válido."
-    );
-    return;
-  } else {
-    limparErro(document.getElementById("cpf"));
-  }
 
   let resultado;
 
